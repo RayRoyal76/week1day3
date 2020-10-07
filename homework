@@ -52,3 +52,43 @@ class Solution {
     }
 }
 
+
+
+[Top K](https://leetcode.com/problems/top-k-frequent-words/submissions/)
+
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        HashMap<String, Integer> myMap = new HashMap<>();
+        for (int i = 0; i< words.length; i++) {
+            myMap.put(words[i],myMap.getOrDefault(words[i],0)+1);
+        }
+        
+        TreeMap<Integer, Set<String>> treemap = new TreeMap<>();
+        
+        int max = 0;
+        for(String key:myMap.keySet()){
+            Integer val = myMap.get(key);
+            max = Math.max(max, val);
+            if(treemap.get(val)==null){
+                Set<String> set = new TreeSet<>();
+                set.add(key);
+                treemap.put(val, set);
+            }else {
+                treemap.get(val).add(key);
+            }
+        }
+        List<String> out = new ArrayList<>();
+        while(k>0) {
+         Integer tempk = treemap.floorKey(max);
+            Set<String> temp = treemap.get(tempk);
+            for (String wordtemp:temp) {
+                if(k==0) break;
+                out.add(wordtemp);
+                k--;
+                
+            }
+            treemap.remove(tempk);
+        }
+        return out;
+    }
+}
