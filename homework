@@ -1,3 +1,32 @@
+[Scanner](https://repl.it/@RayRoyal76/Scanner)
+
+import java.util.Scanner;
+import java.time.LocalDate;
+
+
+
+
+class Main {
+  public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+
+ System.out.println("Please enter your name:");
+ String name = scanner.nextLine();
+
+ System.out.println("Please enter your email:");
+ String email = scanner.nextLine();
+
+ System.out.println("Please enter today's date:");
+ String date = scanner.nextLine();
+ LocalDate today = LocalDate.parse(date);
+
+ System.out.println(today);
+
+
+
+
+
+
 [Two Sum](https://leetcode.com/problems/two-sum/submissions/)
 
 import java.util.*;
