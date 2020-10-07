@@ -1,0 +1,25 @@
+https://leetcode.com/problems/two-sum/submissions/
+
+import java.util.*;
+
+
+// find the two numbers in array that add up to the target
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+     
+        
+    HashMap<Integer, Integer> mySum = new HashMap<>();
+     for (int x = 0; x < nums.length; x++) {
+         int sum = target - nums[x];
+         if (mySum.containsKey(sum)) {
+             return new int[] {mySum.get(sum), x};
+         } else {
+             mySum.put(nums[x], x);
+         }
+     } 
+        return new int[] {};
+        
+    }
+}
+
